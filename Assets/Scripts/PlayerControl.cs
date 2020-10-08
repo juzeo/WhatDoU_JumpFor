@@ -78,9 +78,55 @@ public class PlayerControl : MonoBehaviour
                 touchTime = 0;
             }
         }
+        else if (Input.GetMouseButton(0))
+        {
+            Vector3 PcTouch = Input.mousePosition;
+            if (Input.GetMouseButtonDown(0))
+            {
+                touchPoint = PcTouch;
+                gauage.SetActive(true);
+                if (touchPoint.x > Screen.width / 2)//화면 가운데 기준 좌우 구분
+                {
+                    Render.flipX = true;//캐릭터 바라보는 방향 변경
 
+                }
+                else
+                {
+                    Render.flipX = false;//캐릭터 바라보는 방향 변경
 
+                }
+
+            }
+            //터치 중
+            else if (Input.GetMouseButton(0))
+            {
+                //true==상승 false==하락
+                if (TimeDir == true)
+                {
+                    touchTime += Time.deltaTime;
+                }
+                else
+                {
+                    touchTime -= Time.deltaTime;
+                }
+                if (touchTime > 1 || touchTime < 0) //터치가 1을 넘거나 0 이하면 시간 TimeDir(시간 이동방향)를 바꿈
+                {
+                    TimeDir = !TimeDir;
+                }
+                gauageBar.fillAmount = touchTime;
+            }
+           
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            Jump(touchPoint, touchTime);
+            gauage.SetActive(false);
+            touchTime = 0;
+        }
     }
+
+
+    
    
 
     //오른쪽은 +, 왼쪽은 -으로 구별
