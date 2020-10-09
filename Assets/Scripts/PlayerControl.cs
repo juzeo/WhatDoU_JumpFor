@@ -18,6 +18,7 @@ public class PlayerControl : MonoBehaviour
     SpriteRenderer Render;//플레이어 spriteRenderer
     public Sprite Normal;
     public Sprite JumpAct;
+    public Vector2 StartPos;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,7 @@ public class PlayerControl : MonoBehaviour
         gauageBar = gauage.transform.GetChild(1).GetComponent<Image>();
         Player_Rig = gameObject.GetComponent<Rigidbody2D>();
         Render = GetComponent<SpriteRenderer>();
+        StartPos = gameObject.transform.position;
 
 
 
@@ -34,10 +36,12 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+       
         //모바일 대응
         if (Input.touchCount > 0)
         {
+
+            StartDestory.instance.Hide();
             Touch touch = Input.GetTouch(0);
             if (touch.phase == TouchPhase.Began)
             {
@@ -84,6 +88,8 @@ public class PlayerControl : MonoBehaviour
         //pc대응
         else if (Input.GetMouseButton(0))
         {
+            StartDestory.instance.Hide();
+
             Vector3 PcTouch = Input.mousePosition;
             if (Input.GetMouseButtonDown(0))
             {
@@ -127,6 +133,15 @@ public class PlayerControl : MonoBehaviour
             gauage.SetActive(false);
             touchTime = 0;
         }
+
+
+
+        //테스트 용도
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Die();
+        }
+
     }
 
 
@@ -151,4 +166,9 @@ public class PlayerControl : MonoBehaviour
 
     }
 
+    void Die()
+    {
+        StartDestory.instance.Show();
+        gameObject.transform.position = StartPos;
+    }
 }
