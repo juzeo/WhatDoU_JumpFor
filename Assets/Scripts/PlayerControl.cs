@@ -11,9 +11,9 @@ public class PlayerControl : MonoBehaviour
     public float touchTime = 0;//터치 타임
     Rigidbody2D Player_Rig;//플레이어 중력
     bool TimeDir = true;//true 상승 false 하락
-    public int Amp = 50;//이동 값 증폭
-    public float JumpX=0.5f;//X 이동 값
-    public float JumpY = 2;//Y이동 값
+    public int Amp = 200;//이동 값 증폭
+    public float JumpX=0.8f;//X 이동 값
+    public float JumpY = 1.8f;//Y이동 값
     Vector2 touchPoint;//처음 터치위치 저장
     SpriteRenderer Render;//플레이어 spriteRenderer
     public Sprite Normal;
@@ -34,6 +34,8 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //모바일 대응
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
@@ -78,6 +80,8 @@ public class PlayerControl : MonoBehaviour
                 touchTime = 0;
             }
         }
+
+        //pc대응
         else if (Input.GetMouseButton(0))
         {
             Vector3 PcTouch = Input.mousePosition;
