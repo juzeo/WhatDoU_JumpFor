@@ -11,9 +11,9 @@ public class PlayerControl : MonoBehaviour
     public float touchTime = 0;//터치 타임
     Rigidbody2D Player_Rig;//플레이어 중력
     bool TimeDir = true;//true 상승 false 하락
-    public int Amp = 200;//이동 값 증폭
-    public float JumpX=0.8f;//X 이동 값
-    public float JumpY = 1.8f;//Y이동 값
+    public int Amp = 4;//이동 값 증폭
+    public float JumpX=0.79f;//X 이동 값
+    public float JumpY = 1.79f;//Y이동 값
     Vector2 touchPoint;//처음 터치위치 저장
     SpriteRenderer Render;//플레이어 spriteRenderer
     public Sprite Normal;
@@ -154,14 +154,14 @@ public class PlayerControl : MonoBehaviour
 
         if (touchPos.x > Screen.width / 2)//화면 가운데 기준 좌우 구분
         {
-          
-            Player_Rig.AddForce(new Vector2(JumpX, JumpY) * Amp* touchTime);
+
+            Player_Rig.velocity = (new Vector2(JumpX, JumpY) * Amp* touchTime);
 
         }
         else
         {
           
-            Player_Rig.AddForce(new Vector2(-JumpX, JumpY) * Amp* touchTime);
+            Player_Rig.velocity = (new Vector2(-JumpX, JumpY) * Amp* touchTime);
         }
 
     }
