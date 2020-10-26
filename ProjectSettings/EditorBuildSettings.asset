@@ -8,4 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/main.unity
     guid: 3864da07e737ee346ba5f74e87b7a1c6
+  - enabled: 1
+    path: Assets/Scenes/drawing lots.unity
+    guid: 9431a6a892d6af648b4bd72c0d42d28a
+  - enabled: 1
+    path: Assets/Scenes/Shop.unity
+    guid: be4a834cb22dc0c44a4756cd3d2fd946
+  - enabled: 1
+    path: Assets/Scenes/CoinShop.unity
+    guid: 0e5d3efc2da5a8c4eb05880ee33ba92a
   m_configObjects: {}
