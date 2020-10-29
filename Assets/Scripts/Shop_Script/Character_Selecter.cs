@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class Character_Selecter : MonoBehaviour
 {
+    public static Character_Selecter instance;
     public List<GameObject> Character_set;
 
-    public Sprite NowCharacter;
-
+    public Transform NowCharacter;
+    
     private void Start()
     {
         GameObject[] Character_Temp = GameObject.FindGameObjectsWithTag("Coin");
@@ -16,7 +17,13 @@ public class Character_Selecter : MonoBehaviour
         {
             Character_set.Add(Character_Temp[i]);
         }
-        
+        instance = this;
+
+
+    }
+    void GetNowCharacter()
+    {
+
     }
     private void Update()
     {
@@ -33,12 +40,12 @@ public class Character_Selecter : MonoBehaviour
                     {
                         if (Character_set[i] == hit.transform.gameObject)
                         {
-                            hit.transform.localScale = new Vector3(100, 100,100);
-                            NowCharacter = hit.transform.GetComponent<Sprite>();
+                            hit.transform.localScale = new Vector3(0.2f, 0.2f, 0.3f);
+                            NowCharacter = hit.transform.GetComponent<Transform>();
                           
                         }
                         else
-                            Character_set[i].transform.localScale = new Vector3(50,50 , 50);
+                            Character_set[i].transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
                     }
                    
                 }
