@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Character_Selecter : MonoBehaviour
 {
-    public static Character_Selecter instance;
+    
     public List<GameObject> Character_set;
 
     public Transform NowCharacter;
@@ -17,7 +17,7 @@ public class Character_Selecter : MonoBehaviour
         {
             Character_set.Add(Character_Temp[i]);
         }
-        instance = this;
+       
 
 
     }

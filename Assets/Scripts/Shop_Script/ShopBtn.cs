@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ShopBtn : MonoBehaviour
@@ -9,6 +10,7 @@ public class ShopBtn : MonoBehaviour
     public GameObject CoinScroll;
     public Image CoinBtnImg;
     public Image CharacterBtnImg;
+    public Text Play;
 
     public void CharacterBtn()
     {
@@ -31,5 +33,15 @@ public class ShopBtn : MonoBehaviour
         ColorUtility.TryParseHtmlString("#CFCFCF", out color);
 
         CoinBtnImg.color = color;
+    }
+    public void PlayBtn()
+    {
+        if (Play.text.Equals("X")){
+
+        }
+        else
+        {
+            SceneManager.LoadScene("main");
+        }
     }
 }
