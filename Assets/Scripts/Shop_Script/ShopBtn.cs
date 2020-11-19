@@ -44,4 +44,34 @@ public class ShopBtn : MonoBehaviour
             SceneManager.LoadScene("main");
         }
     }
+    public void MoveDarwing_Lot()
+    {
+        if (CoinManager.instance.OutCoin(100))//코인 100개 소모
+        {
+            GameObject[] Coins = GameObject.FindGameObjectsWithTag("Coin"); //코인 테그 오브젝트 찾기
+            if (Coins[0].transform.parent.name == "CoinScroll")//부모에따라 코인과 캐릭터로 분류
+            {
+                Drawing_lot_Able_Character.instance.Drawing_Type = "Coin";
+            }
+            else
+            {
+                Drawing_lot_Able_Character.instance.Drawing_Type = "Character";
+            }
+            List<Sprite> Coins_Sprite = new List<Sprite>();
+            for (int i = 0; i < Coins.Length; i++)
+            {
+                if (Coins[i].GetComponent<Item_UnLock>().Unlcok == false)//만약 잠금 상태라면
+                {
+                    Coins_Sprite.Add(Coins[i].GetComponent<SpriteRenderer>().sprite);//뽑기 목록에 추가
+                }
+
+            }
+            Drawing_lot_Able_Character.instance.Able_Img_List = new List<Sprite>();
+            Drawing_lot_Able_Character.instance.Able_Img_List = Coins_Sprite;
+
+            SceneManager.LoadScene("drawing lots");
+        }
+        
+        
+    }
 }

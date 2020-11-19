@@ -7,7 +7,7 @@ public class Scroll : MonoBehaviour
     public Vector2 touchPoint;
     public List<Transform> ScrollItem;
    
-    public int nowItemIndex = 0;
+    public int nowItemIndex = 0;//현재 아이템 위치
     Transform nowItem;
     public Vector2 FirstPos;
     float ChangeItemLength = 200;//얼마나 드래그시 아이템이 바뀌는가
@@ -187,6 +187,7 @@ public class Scroll : MonoBehaviour
         try
         {
             playBtnAble.BtnChange(nowItemIndex);
+            
         }
         catch
         {
