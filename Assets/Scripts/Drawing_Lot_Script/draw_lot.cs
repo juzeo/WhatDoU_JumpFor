@@ -9,12 +9,16 @@ public class draw_lot : MonoBehaviour
     public draw_lot instance;
     public List<Sprite> CharacterList;
     public List<Sprite> CoinList;
+    public List<Sprite> AbleList;
     public Transform result;
     public void Start()
     {
         instance = this;
-        result.GetComponent<Image>().sprite = Start_Draw_lot("Coin");
+        AbleList = Drawing_lot_Able_Character.instance.Able_Img_List;
+        Sprite resultImg = Start_Draw_lot(Drawing_lot_Able_Character.instance.Drawing_Type);
+        result.GetComponent<Image>().sprite = resultImg;
         result.gameObject.SetActive(true);
+        Drawing_lot_Able_Character.instance.GetCharacter = resultImg;
 
     }
     public Sprite Start_Draw_lot(string type)
@@ -22,11 +26,11 @@ public class draw_lot : MonoBehaviour
         Sprite pickSprite;
         if (type.Equals("Character"))
         {
-            pickSprite = CharacterList[UnityEngine.Random.Range(0, CharacterList.Count)];
+            pickSprite = AbleList[UnityEngine.Random.Range(0, AbleList.Count)];
         }
         else if (type.Equals("Coin"))
         {
-            pickSprite = CoinList[UnityEngine.Random.Range(0, CoinList.Count)];
+            pickSprite = AbleList[UnityEngine.Random.Range(0, AbleList.Count)];
         }
         else
         {
