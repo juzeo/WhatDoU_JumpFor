@@ -9,24 +9,28 @@ public class PlayBtnAble : MonoBehaviour
     public List<bool> ScrollItem_Unlock;
     public GameObject PlayBtn;
     // Start is called before the first frame update
-    void Awake()
+
+    public void CheckUnlock()
     {
         ScrollItem_Unlock = new List<bool>();
         scroll = gameObject.GetComponent<Scroll>();
+
         for (int i = 0; i < scroll.ScrollItem.Count; i++)
         {
-         
+
             if (scroll.ScrollItem[i].GetComponent<SpriteRenderer>().sprite == Drawing_lot_Able_Character.instance.GetCharacter)
             {
                 scroll.ScrollItem[i].GetComponent<Item_UnLock>().Unlcok = true;
-                Debug.Log(Drawing_lot_Able_Character.instance.GetCharacter.name+"해금");
+                Debug.Log(scroll.ScrollItem[i].GetComponent<Item_UnLock>().Unlcok);
+                Debug.Log(Drawing_lot_Able_Character.instance.GetCharacter.name + "해금");
             }
-                
+           
             ScrollItem_Unlock.Add(scroll.ScrollItem[i].GetComponent<Item_UnLock>().Unlcok);
             if (ScrollItem_Unlock[i] == false)
             {
                 scroll.ScrollItem[i].GetComponent<SpriteRenderer>().color = Color.black;
             }
+
         }
     }
 

@@ -183,9 +183,10 @@ public class Scroll : MonoBehaviour
         {
             ScrollItem[i].position = new Vector2((i - nowItemIndex) * BetweenItemLengh, FirstPos.y);
         }
-        playBtnAble.BtnChange(nowItemIndex);
+        
         try
         {
+            playBtnAble.CheckUnlock();
             playBtnAble.BtnChange(nowItemIndex);
             
         }

@@ -11,7 +11,24 @@ public class ShopBtn : MonoBehaviour
     public Image CoinBtnImg;
     public Image CharacterBtnImg;
     public Text Play;
+    public List<Transform> ItemList;
 
+
+    public void Start()
+    {
+        List<CharacterNCoin> UnlockList = DataController.instance.dataSave.UnlockList;
+        for (int i = 0; i < ItemList.Count; i++)
+        {
+            for (int j = 0; j < UnlockList.Count; j++)
+            {
+                if (UnlockList[j].name== ItemList[i].GetComponent<SpriteRenderer>().sprite.name) 
+                {
+                    ItemList[i].GetComponent<Item_UnLock>().Unlcok = UnlockList[j].Unlock;
+                }
+            }
+           
+        }
+    }
     public void CharacterBtn()
     {
         CharacterScroll.SetActive(true);
@@ -36,6 +53,7 @@ public class ShopBtn : MonoBehaviour
     }
     public void PlayBtn()
     {
+        SaveItemList();
         if (Play.text.Equals("X")){
 
         }
@@ -46,8 +64,8 @@ public class ShopBtn : MonoBehaviour
     }
     public void MoveDarwing_Lot()
     {
-        if (CoinManager.instance.OutCoin(100))//코인 100개 소모
-        {
+        
+            SaveItemList();
             GameObject[] Coins = GameObject.FindGameObjectsWithTag("Coin"); //코인 테그 오브젝트 찾기
             if (Coins[0].transform.parent.name == "CoinScroll")//부모에따라 코인과 캐릭터로 분류
             {
@@ -68,10 +86,40 @@ public class ShopBtn : MonoBehaviour
             }
             Drawing_lot_Able_Character.instance.Able_Img_List = new List<Sprite>();
             Drawing_lot_Able_Character.instance.Able_Img_List = Coins_Sprite;
-
+            if (Drawing_lot_Able_Character.instance.Able_Img_List.Count!=0&& CoinManager.instance.OutCoin(100))
             SceneManager.LoadScene("drawing lots");
-        }
+        
         
         
     }
+    private void OnApplicationQuit()
+    {
+        SaveItemList();
+    }
+   void SaveItemList()
+    {
+        
+            List<CharacterNCoin> SaveList = new List<CharacterNCoin>();
+            for (int i = 0; i < ItemList.Count; i++)
+            {
+                CharacterNCoin temp = new CharacterNCoin();
+                temp.Create(ItemList[i].GetComponent<SpriteRenderer>().sprite.name, ItemList[i].GetComponent<Item_UnLock>().Unlcok);
+                SaveList.Add(temp);
+                
+            }
+            List<string> name = new List<string>();
+            List<bool> Unlock = new List<bool>();
+            for (int i = 0; i < SaveList.Count; i++)
+            {
+                name.Add(SaveList[i].name);
+                Unlock.Add(SaveList[i].Unlock);
+            }
+            DataController.instance.dataSave.UnlockList_name = name;
+            DataController.instance.dataSave.UnlockList_bool = Unlock;
+
+            
+        }
+       
+    
+
 }
