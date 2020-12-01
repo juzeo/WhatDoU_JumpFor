@@ -1178,6 +1178,17 @@ MonoBehaviour:
   CoinBtnImg: {fileID: 328688217}
   CharacterBtnImg: {fileID: 1182373370}
   Play: {fileID: 1746095706}
+  ItemList:
+  - {fileID: 471016006}
+  - {fileID: 1045901264}
+  - {fileID: 1151810104}
+  - {fileID: 521262221}
+  - {fileID: 126417782}
+  - {fileID: 58595038}
+  - {fileID: 820162354}
+  - {fileID: 864635972}
+  - {fileID: 621601629}
+  - {fileID: 681130545}
 --- !u!1 &409286943
 GameObject:
   m_ObjectHideFlags: 0
@@ -2163,6 +2174,7 @@ GameObject:
   - component: {fileID: 899896136}
   - component: {fileID: 899896135}
   - component: {fileID: 899896137}
+  - component: {fileID: 899896138}
   m_Layer: 0
   m_Name: GameRule
   m_TagString: Untagged
@@ -2212,6 +2224,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coin: 0
+--- !u!114 &899896138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899896134}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb2efe6c9aba02f41a78b31a468eccfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dataSave:
+    Coin: 0
+    UnlockList_name: []
+    UnlockList_bool: 
+  DataFileName: Coin.json
 --- !u!1001 &1026606505
 PrefabInstance:
   m_ObjectHideFlags: 0
