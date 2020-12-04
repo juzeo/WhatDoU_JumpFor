@@ -40,18 +40,26 @@ public class Character_Selecter : MonoBehaviour
                     {
                         if (Character_set[i] == hit.transform.gameObject)
                         {
-                            hit.transform.localScale = new Vector3(0.2f, 0.2f, 0.3f);
+                            hit.transform.localScale = new Vector3(0.5f, 0.5f, 0.3f);
                             NowCharacter = hit.transform.GetComponent<Transform>();
                           
                         }
                         else
-                            Character_set[i].transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
+                            Character_set[i].transform.localScale = new Vector3(0.3f, 0.3f, 0.15f);
                     }
                    
                 }
             
            
            
+             }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            BannerAds.instance.showBanner();
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            FullAds.instance.show();
         }
     }
 }
