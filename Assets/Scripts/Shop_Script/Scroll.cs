@@ -11,7 +11,7 @@ public class Scroll : MonoBehaviour
     Transform nowItem;
     public Vector2 FirstPos;
     float ChangeItemLength = 200;//얼마나 드래그시 아이템이 바뀌는가
-    float BetweenItemLengh = 1;//아이템 사이의 거리
+    float BetweenItemLengh = 1.5f;//아이템 사이의 거리
     public float moveX;
     public Vector2 pastPos;
     public Vector2 nowPos;
@@ -21,9 +21,12 @@ public class Scroll : MonoBehaviour
 
     private void Start()
     {
+        FirstPos = gameObject.transform.position;
+        FirstPos -= new Vector2(0, 1);
         SetMainItem();
         parent_Selecter = gameObject.transform.parent.GetComponent<Character_Selecter>();
        
+
 
     }
     private void FixedUpdate()
