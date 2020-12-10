@@ -440,7 +440,7 @@ GameObject:
   - component: {fileID: 126417785}
   - component: {fileID: 126417783}
   m_Layer: 0
-  m_Name: candy (2)
+  m_Name: "\uCF54\uC7785"
   m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -477,7 +477,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.92, y: 3.04}
+    oldSize: {x: 0.75, y: 0.74}
     newSize: {x: 4.92, y: 3.04}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -524,7 +524,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7056ac87cd965164dada5dd644af0033, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e4fd7687ccf55dd439d1cca497534ac2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1402,7 +1402,7 @@ GameObject:
   - component: {fileID: 471016009}
   - component: {fileID: 471016007}
   m_Layer: 0
-  m_Name: banana
+  m_Name: "\uCF54\uC7781"
   m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1439,7 +1439,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.73, y: 5.76}
+    oldSize: {x: 1.81, y: 1.81}
     newSize: {x: 5.73, y: 5.76}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1486,7 +1486,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 266c0c570fd113e489b763807cbcb3b6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 887f3b60ca912e94b87830e1d66cc43d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1603,7 +1603,7 @@ GameObject:
   - component: {fileID: 521262224}
   - component: {fileID: 521262222}
   m_Layer: 0
-  m_Name: candy (1)
+  m_Name: "\uCF54\uC7784"
   m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1640,7 +1640,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.92, y: 3.04}
+    oldSize: {x: 3, y: 3}
     newSize: {x: 4.92, y: 3.04}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1687,7 +1687,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7056ac87cd965164dada5dd644af0033, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c9cb0270eda14ac4e9d69027247dc8e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2394,7 +2394,7 @@ GameObject:
   - component: {fileID: 1045901267}
   - component: {fileID: 1045901265}
   m_Layer: 0
-  m_Name: coin2
+  m_Name: "\uCF54\uC7782"
   m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2431,7 +2431,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.81, y: 1.81}
+    oldSize: {x: 1.5, y: 1.5}
     newSize: {x: 1.81, y: 1.81}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2478,7 +2478,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 887f3b60ca912e94b87830e1d66cc43d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 031b0f2d943724e4a862476c3428d25e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2887,7 +2887,7 @@ GameObject:
   - component: {fileID: 1151810107}
   - component: {fileID: 1151810105}
   m_Layer: 0
-  m_Name: candy
+  m_Name: "\uCF54\uC7783"
   m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2924,7 +2924,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.92, y: 3.04}
+    oldSize: {x: 0.75, y: 0.74}
     newSize: {x: 4.92, y: 3.04}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2971,7 +2971,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7056ac87cd965164dada5dd644af0033, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1842f6c5d74ea974ba1b954b2b4da062, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3432,7 +3432,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1570524655
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3450,7 +3450,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.992}
+  m_AnchoredPosition: {x: 0, y: 0.01}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1570524656

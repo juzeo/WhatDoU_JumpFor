@@ -17,4 +17,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CoinShop.unity
     guid: 0e5d3efc2da5a8c4eb05880ee33ba92a
+  - enabled: 1
+    path: Assets/Scenes/Stage01.unity
+    guid: 224f85f2c5b7850418492a1fc21d4515
+  - enabled: 1
+    path: Assets/Scenes/Stage02.unity
+    guid: 819bdea4a20ffee42ab64fd8d38c261e
+  - enabled: 1
+    path: Assets/Scenes/Stage03.unity
+    guid: e2ca07a69b081f942b0ea5764f215b2b
+  - enabled: 1
+    path: Assets/Scenes/Stage04.unity
+    guid: 9ac007c211d184849b1542888ac1d7b4
+  - enabled: 1
+    path: Assets/Scenes/Stage05.unity
+    guid: c364602e914004945a4be43719ee25b3
   m_configObjects: {}
