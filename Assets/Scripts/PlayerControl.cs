@@ -20,7 +20,7 @@ public class PlayerControl : MonoBehaviour
     SpriteRenderer Render;//플레이어 spriteRenderer
     public Sprite Normal;
     public Sprite JumpAct;
-    public Vector2 StartPos;
+    public Vector3 StartPos;
 
     // Start is called before the first frame update
     void Start()
