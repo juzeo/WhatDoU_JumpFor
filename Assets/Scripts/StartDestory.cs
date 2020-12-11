@@ -32,4 +32,5 @@ public class StartDestory : MonoBehaviour
             Object[i].SetActive(false);
         }
     }
+
 }

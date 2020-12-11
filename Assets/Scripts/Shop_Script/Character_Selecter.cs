@@ -9,6 +9,8 @@ public class Character_Selecter : MonoBehaviour
     public List<GameObject> Character_set;
 
     public Transform NowCharacter;
+    public float selectScale;
+    public float elementScale;
     
     private void Start()
     {
@@ -21,9 +23,9 @@ public class Character_Selecter : MonoBehaviour
 
 
     }
-    void GetNowCharacter()
+    public string GetNowCharacter()
     {
-
+        return NowCharacter.GetComponent<SpriteRenderer>().sprite.name;
     }
     private void Update()
     {
@@ -40,12 +42,12 @@ public class Character_Selecter : MonoBehaviour
                     {
                         if (Character_set[i] == hit.transform.gameObject)
                         {
-                            hit.transform.localScale = new Vector3(0.5f, 0.5f, 0.3f);
+                            hit.transform.localScale = new Vector3(selectScale, selectScale, selectScale);
                             NowCharacter = hit.transform.GetComponent<Transform>();
                           
                         }
                         else
-                            Character_set[i].transform.localScale = new Vector3(0.3f, 0.3f, 0.15f);
+                            Character_set[i].transform.localScale = new Vector3(elementScale, elementScale, elementScale);
                     }
                    
                 }

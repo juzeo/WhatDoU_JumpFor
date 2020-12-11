@@ -14,7 +14,7 @@ public class PlayerControl : MonoBehaviour
     Rigidbody2D Player_Rig;//플레이어 중력
     bool TimeDir = true;//true 상승 false 하락
     public int Amp = 4;//이동 값 증폭
-    public float JumpX=0.79f;//X 이동 값
+    public float JumpX = 0.79f;//X 이동 값
     public float JumpY = 1.79f;//Y이동 값
     Vector2 touchPoint;//처음 터치위치 저장
     SpriteRenderer Render;//플레이어 spriteRenderer
@@ -38,7 +38,10 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (EventSystem.current.IsPointerOverGameObject() == false)
+        {
+
+
             //모바일 대응
             if (Input.touchCount > 0)
             {
@@ -90,7 +93,7 @@ public class PlayerControl : MonoBehaviour
             //pc대응
             else if (Input.GetMouseButton(0))
             {
-                StartDestory.instance.Hide();
+                
 
                 Vector3 PcTouch = Input.mousePosition;
                 if (Input.GetMouseButtonDown(0))
@@ -143,25 +146,26 @@ public class PlayerControl : MonoBehaviour
             {
                 Die();
             }
-
         }
 
-    
+    }
+
+
 
     //오른쪽은 +, 왼쪽은 -으로 구별
-    void Jump(Vector2 touchPos,float touchTime)
+    void Jump(Vector2 touchPos, float touchTime)
     {
 
         if (touchPos.x > Screen.width / 2)//화면 가운데 기준 좌우 구분
         {
 
-            Player_Rig.velocity = (new Vector2(JumpX, JumpY) * Amp* touchTime);
+            Player_Rig.velocity = (new Vector2(JumpX, JumpY) * Amp * touchTime);
 
         }
         else
         {
-          
-            Player_Rig.velocity = (new Vector2(-JumpX, JumpY) * Amp* touchTime);
+
+            Player_Rig.velocity = (new Vector2(-JumpX, JumpY) * Amp * touchTime);
         }
 
     }

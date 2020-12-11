@@ -12,6 +12,7 @@ public class ShopBtn : MonoBehaviour
     public Image CharacterBtnImg;
     public Text Play;
     public List<Transform> ItemList;
+    public Character_Selecter Selecter;
 
 
     public void Start()
@@ -54,6 +55,16 @@ public class ShopBtn : MonoBehaviour
     public void PlayBtn()
     {
         SaveItemList();
+        GameObject Coin = GameObject.FindGameObjectWithTag("Coin");
+        if (Coin.transform.parent.name == "CoinScroll")
+        {
+            DataController.instance.dataSave.nowCoin_name = Selecter.GetNowCharacter();
+        }
+        else
+        {
+            DataController.instance.dataSave.nowCharacter_name = Selecter.GetNowCharacter();
+        }
+        
         if (Play.text.Equals("X")){
 
         }

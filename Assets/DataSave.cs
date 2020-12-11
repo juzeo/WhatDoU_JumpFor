@@ -9,6 +9,8 @@ public class DataSave
     public int Coin;
     public List<string> UnlockList_name;
     public List<bool> UnlockList_bool;
+    public string nowCharacter_name;
+    public string nowCoin_name;
     public List<CharacterNCoin> UnlockList
     {
         get
