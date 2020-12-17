@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour
 {
-
-    bool ground = true;
+    int groutdata = 0;
+    bool ground = false;
     GameObject gauage;//게이지바 오브젝트
     Image gauageBar;//게이지 바 fill
     public float touchTime = 0;//터치 타임
@@ -38,115 +38,124 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (EventSystem.current.IsPointerOverGameObject() == false)
+        //카메라 밖으로 나가면
+        Vector3 view = Camera.main.WorldToScreenPoint(transform.position);
+        
+        if (view.y < -20)
         {
+            Die();
+        }
 
-
-            //모바일 대응
-            if (Input.touchCount > 0)
+            if (EventSystem.current.IsPointerOverGameObject() == false && ground==true)
             {
-
-                StartDestory.instance.Hide();
-                Touch touch = Input.GetTouch(0);
-                if (touch.phase == TouchPhase.Began)
+                //모바일 대응
+                if (Input.touchCount > 0)
                 {
-                    touchPoint = touch.position;
-                    gauage.SetActive(true);
-                    if (touchPoint.x > Screen.width / 2)//화면 가운데 기준 좌우 구분
+
+                    StartDestory.instance.Hide();
+                    Touch touch = Input.GetTouch(0);
+                    if (touch.phase == TouchPhase.Began)
                     {
-                        Render.flipX = true;//캐릭터 바라보는 방향 변경
+                        touchPoint = touch.position;
+                        gauage.SetActive(true);
+                        if (touchPoint.x > Screen.width / 2)//화면 가운데 기준 좌우 구분
+                        {
+                            Render.flipX = true;//캐릭터 바라보는 방향 변경
+
+                        }
+                        else
+                        {
+                            Render.flipX = false;//캐릭터 바라보는 방향 변경
+
+                        }
 
                     }
-                    else
+                    //터치 중
+                    if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
                     {
-                        Render.flipX = false;//캐릭터 바라보는 방향 변경
+                        //true==상승 false==하락
+                        if (TimeDir == true)
+                        {
+                            touchTime += Time.deltaTime;
+                        }
+                        else
+                        {
+                            touchTime -= Time.deltaTime;
+                        }
+                        if (touchTime > 1 || touchTime < 0) //터치가 1을 넘거나 0 이하면 시간 TimeDir(시간 이동방향)를 바꿈
+                        {
+                            TimeDir = !TimeDir;
+                        }
+                        gauageBar.fillAmount = touchTime;
+                    }
+                    if (touch.phase == TouchPhase.Ended)
+                    {
+                        Jump(touchPoint, touchTime);
+                        gauage.SetActive(false);
+                        touchTime = 0;
+                    }
+                }
 
+                //pc대응
+                else if (Input.GetMouseButton(0))
+                {
+
+
+                    Vector3 PcTouch = Input.mousePosition;
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        touchPoint = PcTouch;
+                        gauage.SetActive(true);
+                        if (touchPoint.x > Screen.width / 2)//화면 가운데 기준 좌우 구분
+                        {
+                            Render.flipX = true;//캐릭터 바라보는 방향 변경
+
+                        }
+                        else
+                        {
+                            Render.flipX = false;//캐릭터 바라보는 방향 변경
+
+                        }
+
+                    }
+                    //터치 중
+                    else if (Input.GetMouseButton(0))
+                    {
+                        //true==상승 false==하락
+                        if (TimeDir == true)
+                        {
+                            touchTime += Time.deltaTime;
+                        }
+                        else
+                        {
+                            touchTime -= Time.deltaTime;
+                        }
+                        if (touchTime > 1 || touchTime < 0) //터치가 1을 넘거나 0 이하면 시간 TimeDir(시간 이동방향)를 바꿈
+                        {
+                            TimeDir = !TimeDir;
+                        }
+                        gauageBar.fillAmount = touchTime;
                     }
 
                 }
-                //터치 중
-                if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
-                {
-                    //true==상승 false==하락
-                    if (TimeDir == true)
-                    {
-                        touchTime += Time.deltaTime;
-                    }
-                    else
-                    {
-                        touchTime -= Time.deltaTime;
-                    }
-                    if (touchTime > 1 || touchTime < 0) //터치가 1을 넘거나 0 이하면 시간 TimeDir(시간 이동방향)를 바꿈
-                    {
-                        TimeDir = !TimeDir;
-                    }
-                    gauageBar.fillAmount = touchTime;
-                }
-                if (touch.phase == TouchPhase.Ended)
+                else if (Input.GetMouseButtonUp(0))
                 {
                     Jump(touchPoint, touchTime);
                     gauage.SetActive(false);
                     touchTime = 0;
+                    ground = false;
                 }
-            }
 
-            //pc대응
-            else if (Input.GetMouseButton(0))
-            {
-                
 
-                Vector3 PcTouch = Input.mousePosition;
-                if (Input.GetMouseButtonDown(0))
+
+                //테스트 용도
+                if (Input.GetKeyDown(KeyCode.Q))
                 {
-                    touchPoint = PcTouch;
-                    gauage.SetActive(true);
-                    if (touchPoint.x > Screen.width / 2)//화면 가운데 기준 좌우 구분
-                    {
-                        Render.flipX = true;//캐릭터 바라보는 방향 변경
-
-                    }
-                    else
-                    {
-                        Render.flipX = false;//캐릭터 바라보는 방향 변경
-
-                    }
-
+                    Die();
                 }
-                //터치 중
-                else if (Input.GetMouseButton(0))
-                {
-                    //true==상승 false==하락
-                    if (TimeDir == true)
-                    {
-                        touchTime += Time.deltaTime;
-                    }
-                    else
-                    {
-                        touchTime -= Time.deltaTime;
-                    }
-                    if (touchTime > 1 || touchTime < 0) //터치가 1을 넘거나 0 이하면 시간 TimeDir(시간 이동방향)를 바꿈
-                    {
-                        TimeDir = !TimeDir;
-                    }
-                    gauageBar.fillAmount = touchTime;
-                }
-
             }
-            else if (Input.GetMouseButtonUp(0))
-            {
-                Jump(touchPoint, touchTime);
-                gauage.SetActive(false);
-                touchTime = 0;
-            }
-
-
-
-            //테스트 용도
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                Die();
-            }
-        }
+        
+        
 
     }
 
@@ -155,18 +164,21 @@ public class PlayerControl : MonoBehaviour
     //오른쪽은 +, 왼쪽은 -으로 구별
     void Jump(Vector2 touchPos, float touchTime)
     {
+        
+            if (touchPos.x > Screen.width / 2)//화면 가운데 기준 좌우 구분
+            {
 
-        if (touchPos.x > Screen.width / 2)//화면 가운데 기준 좌우 구분
-        {
+                Player_Rig.velocity = (new Vector2(JumpX, JumpY) * Amp * touchTime);
 
-            Player_Rig.velocity = (new Vector2(JumpX, JumpY) * Amp * touchTime);
+            }
+            else
+            {
 
-        }
-        else
-        {
+                Player_Rig.velocity = (new Vector2(-JumpX, JumpY) * Amp * touchTime);
+            }
 
-            Player_Rig.velocity = (new Vector2(-JumpX, JumpY) * Amp * touchTime);
-        }
+  
+
 
     }
 
@@ -183,6 +195,16 @@ public class PlayerControl : MonoBehaviour
         {
             collision.enabled = false; // 중복방지
             GameManage.NextStage();
-        }
+        }          
     }
+
+     void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject)
+        {
+            ground = true;
+        }
+        
+    }
+
 }

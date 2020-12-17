@@ -17,12 +17,12 @@ public class GameManage : MonoBehaviour
     Quaternion StartingRotate;
 
     void Start()
-    {
+    {/*
         Screen.SetResolution(1440, 2960, true);
 
         StartingPos = GameObject.FindGameObjectWithTag("Start").transform.position;
         StartingRotate = GameObject.FindGameObjectWithTag("Start").transform.rotation;
-        if (stageLevel > 0) StartGame(); //0값 수정 필요
+        if (stageLevel > 0) StartGame(); //0값 수정 필요 */
 
 
     }
