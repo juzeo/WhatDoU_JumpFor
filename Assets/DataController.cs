@@ -52,6 +52,8 @@ public class DataController : MonoBehaviour
         {
             Debug.Log("파일 생성");
             dataSave = new DataSave();
+            dataSave.nowCharacter_name="Ch1";
+            Debug.Log(dataSave.nowCharacter_name);
         }
         
     }

@@ -21,15 +21,31 @@ public class PlayerControl : MonoBehaviour
     public Sprite Normal;
     public Sprite JumpAct;
     public Vector3 StartPos;
+    public List<Sprite> character = new List<Sprite>();
 
     // Start is called before the first frame update
     void Start()
     {
-        gauage = transform.GetChild(0).gameObject;
+        //DataController.instance.dataSave.Coin
+
+           gauage = transform.GetChild(0).gameObject;
         gauageBar = gauage.transform.GetChild(1).GetComponent<Image>();
         Player_Rig = gameObject.GetComponent<Rigidbody2D>();
         Render = GetComponent<SpriteRenderer>();
         StartPos = gameObject.transform.position;
+        Debug.Log( DataController.instance.dataSave.nowCharacter_name);
+     
+        for (int i = 0; i < character.Count; i++)
+        {
+
+            if (character[i].name == DataController.instance.dataSave.nowCharacter_name)
+            {
+                gameObject.GetComponent<SpriteRenderer>().sprite = character[i];
+                Debug.Log(character[i].name);
+            }
+        }
+        
+
 
 
 
