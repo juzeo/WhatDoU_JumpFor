@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class CoinManager : MonoBehaviour
 {
+    public GameObject Player;
     public static CoinManager instance;
 
     public int coin;
@@ -58,4 +59,6 @@ public class CoinManager : MonoBehaviour
     {
         return coin;
     }
+
+ 
 }

@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class GPGSBoard : MonoBehaviour
 {
-
+    /*
     public void Awake()
     {
  
@@ -56,6 +56,6 @@ public class GPGSBoard : MonoBehaviour
           // handle success or failure
       });
         }
-    }
+    }*/
 
 }

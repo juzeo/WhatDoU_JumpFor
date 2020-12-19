@@ -6,7 +6,10 @@ using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour
 {
-    int groutdata = 0;
+
+
+    CoinManager coinManager;
+
     bool ground = false;
     GameObject gauage;//게이지바 오브젝트
     Image gauageBar;//게이지 바 fill
@@ -220,7 +223,15 @@ public class PlayerControl : MonoBehaviour
         {
             ground = true;
         }
-        
+
+        // 코인과 부딪히면 Coin 점수 상승
+        if (collision.gameObject.tag == "Coin")
+        {
+            Debug.Log("aa");
+            coinManager = GameObject.Find("GameRule").GetComponent<CoinManager>();
+            coinManager.coin++;
+          
+        }
     }
 
 }

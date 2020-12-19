@@ -4982,6 +4982,7 @@ MonoBehaviour:
   Normal: {fileID: 0}
   JumpAct: {fileID: 0}
   StartPos: {x: 0, y: 0, z: 0}
+  character: []
 --- !u!212 &1697645875
 SpriteRenderer:
   m_ObjectHideFlags: 0
