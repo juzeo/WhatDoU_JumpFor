@@ -27,7 +27,7 @@ public class CameraControl : MonoBehaviour
             maxY = player.transform.position.y;
             x = player.transform.position.x;
 
-            Camera.main.transform.position = new Vector2(x,maxY+2f);
+            Camera.main.transform.position = new Vector3(x,maxY+2f,-10);
 
         }
 
