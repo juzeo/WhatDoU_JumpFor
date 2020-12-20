@@ -36,7 +36,7 @@ public class PlayerControl : MonoBehaviour
         Player_Rig = gameObject.GetComponent<Rigidbody2D>();
         Render = GetComponent<SpriteRenderer>();
         StartPos = gameObject.transform.position;
-        Debug.Log( DataController.instance.dataSave.nowCharacter_name);
+        //Debug.Log( DataController.instance.dataSave.nowCharacter_name);
      
         for (int i = 0; i < character.Count; i++)
         {
@@ -44,7 +44,7 @@ public class PlayerControl : MonoBehaviour
             if (character[i].name == DataController.instance.dataSave.nowCharacter_name)
             {
                 gameObject.GetComponent<SpriteRenderer>().sprite = character[i];
-                Debug.Log(character[i].name);
+                
             }
         }
         
@@ -59,8 +59,9 @@ public class PlayerControl : MonoBehaviour
     {
         //카메라 밖으로 나가면
         Vector3 view = Camera.main.WorldToScreenPoint(transform.position);
-        
-        if (view.y < -20)
+
+        //만약 카메라 기준으로 밖으로 나가려면 카메라가  일정이하 안내려가는데 해당 코드가 없어서 캐릭터 기준으로 우선 대체 
+        if (transform.position.y < -20)
         {
             Die();
         }
@@ -205,6 +206,7 @@ public class PlayerControl : MonoBehaviour
     {
         StartDestory.instance.Show();
         gameObject.transform.position = StartPos;
+        CoinManager.instance.thisGameCoin = 0;
     }
 
     // 골인 지점 닿으면 스테이지 이동 호출
@@ -214,7 +216,19 @@ public class PlayerControl : MonoBehaviour
         {
             collision.enabled = false; // 중복방지
             GameManage.NextStage();
-        }          
+        }
+        //코인이 collision일 경우 가끔 코인에 부딪쳐서 trigger로 변경
+        // 코인과 부딪히면 Coin 점수 상승
+        if (collision.gameObject.tag == "Coin")
+        {
+            Debug.Log("aa");
+            Destroy(collision.gameObject);
+            CoinManager.instance.InCoin(1);
+            CoinManager.instance.thisGameCoin++;
+
+
+
+        }
     }
 
      void OnCollisionEnter2D(Collision2D collision)
@@ -224,14 +238,9 @@ public class PlayerControl : MonoBehaviour
             ground = true;
         }
 
-        // 코인과 부딪히면 Coin 점수 상승
-        if (collision.gameObject.tag == "Coin")
-        {
-            Debug.Log("aa");
-            coinManager = GameObject.Find("GameRule").GetComponent<CoinManager>();
-            coinManager.coin++;
-          
-        }
+       
     }
+    
+    
 
 }

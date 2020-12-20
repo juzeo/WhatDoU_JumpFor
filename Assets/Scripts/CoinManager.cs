@@ -8,8 +8,9 @@ public class CoinManager : MonoBehaviour
 {
     public GameObject Player;
     public static CoinManager instance;
-
+    public int thisGameCoin = 0;
     public int coin;
+   
     void Start()
     {
 

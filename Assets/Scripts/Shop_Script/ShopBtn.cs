@@ -12,7 +12,8 @@ public class ShopBtn : MonoBehaviour
     public Image CharacterBtnImg;
     public Text Play;
     public List<Transform> ItemList;
-    public Character_Selecter Selecter;
+    public Character_Selecter CoinSelecter;
+    public Character_Selecter CharacterSelecter;
 
 
     public void Start()
@@ -56,13 +57,37 @@ public class ShopBtn : MonoBehaviour
     {
         SaveItemList();
         GameObject Coin = GameObject.FindGameObjectWithTag("Coin");
-        if (Coin.transform.parent.name == "CoinScroll")
+        Debug.LogError(Coin.transform.parent.parent.name);
+        if (Coin.transform.parent.parent.name == "CoinScroll")
         {
-            DataController.instance.dataSave.nowCoin_name = Selecter.GetNowCharacter();
+            for (int i = 0; i < DataController.instance.dataSave.UnlockList_name.Count; i++)
+            {
+               // Debug.LogError(Selecter.GetNowCharacter()+ DataController.instance.dataSave.UnlockList_name[i]);
+                if (CoinSelecter.GetNowCharacter() == DataController.instance.dataSave.UnlockList_name[i])
+                {
+                   
+                    if (DataController.instance.dataSave.UnlockList_bool[i] == true)
+                    {
+                       
+                        DataController.instance.dataSave.nowCoin_name = CoinSelecter.GetNowCharacter();
+                    }
+                }
+            }
+           
         }
         else
         {
-            DataController.instance.dataSave.nowCharacter_name = Selecter.GetNowCharacter();
+            for (int i = 0; i < DataController.instance.dataSave.UnlockList_name.Count; i++)
+            {
+                if (CharacterSelecter.GetNowCharacter() == DataController.instance.dataSave.UnlockList_name[i])
+                {
+                    if (DataController.instance.dataSave.UnlockList_bool[i] == true)
+                    {
+                    
+                        DataController.instance.dataSave.nowCharacter_name = CharacterSelecter.GetNowCharacter();
+                    }
+                }
+            }
         }
         
         if (Play.text.Equals("X")){
