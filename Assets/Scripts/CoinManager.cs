@@ -40,6 +40,7 @@ public class CoinManager : MonoBehaviour
     public void InCoin(int num)
     {
         coin += num;
+        thisGameCoin += num;
         DataController.instance.dataSave.Coin = coin;
         Coinbar.instance.UpdateText();
         Debug.Log("코인 저장");

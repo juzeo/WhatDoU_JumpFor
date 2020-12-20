@@ -11,6 +11,8 @@ public class DataSave
     public List<bool> UnlockList_bool;
     public string nowCharacter_name;
     public string nowCoin_name;
+    public int nowStage;
+    public bool soundOn;
     public List<CharacterNCoin> UnlockList
     {
         get

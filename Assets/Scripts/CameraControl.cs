@@ -8,9 +8,10 @@ public class CameraControl : MonoBehaviour
     float maxY = 0;
     float x;
 
-    public GameObject player;
+    GameObject player;
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("player");
         maxY = player.transform.position.y;
     }
     //가끔 버벅이면서 이동하기에 FixedUpdate로 정규적으로 이동함으로써 버벅임 삭제

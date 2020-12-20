@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManage : MonoBehaviour
 {
+    public static GameManage instance;
     // Start is called before the first frame update
     public int ClickCount;
 
@@ -17,7 +18,20 @@ public class GameManage : MonoBehaviour
     Quaternion StartingRotate;
 
     void Start()
-    {/*
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+          
+        }
+
+
+        /*
         Screen.SetResolution(1440, 2960, true);
 
         StartingPos = GameObject.FindGameObjectWithTag("Start").transform.position;
@@ -50,7 +64,10 @@ public class GameManage : MonoBehaviour
     {
         ClickCount = 0;
     }
-
+    public void Next()
+    {
+        NextStage();
+    }
     // 스테이지 이동
     public static void NextStage() {
 

@@ -5,32 +5,25 @@ using UnityEngine;
 public class StartDestory : MonoBehaviour
 {
     public static StartDestory instance;
-    public List<GameObject> Object;
+    public GameObject Object;
     void Start()
     {
         instance = this;
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            Object.Add( transform.GetChild(i).gameObject);
-        }
-        
+        Object = transform.GetChild(0).gameObject;
+
+
     }
 
     public void Show()
     {
-        for (int i = 0; i < Object.Count; i++)
-        {
-            Object[i].SetActive(true);
-        }
+        Object.SetActive(true);
+
 
     }
 
     public void Hide()
     {
-        for (int i = 0; i < Object.Count; i++)
-        {
-            Object[i].SetActive(false);
-        }
+        Object.SetActive(false);
     }
 
 }

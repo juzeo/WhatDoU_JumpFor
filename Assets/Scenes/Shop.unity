@@ -1954,6 +1954,7 @@ MonoBehaviour:
     UnlockList_bool: 
     nowCharacter_name: 
     nowCoin_name: 
+    nowStage: 0
   DataFileName: Coin.json
 --- !u!114 &899896139
 MonoBehaviour:

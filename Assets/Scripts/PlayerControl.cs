@@ -25,19 +25,26 @@ public class PlayerControl : MonoBehaviour
     public Sprite JumpAct;
     public Vector3 StartPos;
     public List<Sprite> character = new List<Sprite>();
+    GameObject ClearPanel;
+   public AudioSource audioSource;
+ 
 
     // Start is called before the first frame update
     void Start()
     {
         //DataController.instance.dataSave.Coin
 
-           gauage = transform.GetChild(0).gameObject;
+        gauage = transform.GetChild(0).gameObject;
         gauageBar = gauage.transform.GetChild(1).GetComponent<Image>();
         Player_Rig = gameObject.GetComponent<Rigidbody2D>();
         Render = GetComponent<SpriteRenderer>();
         StartPos = gameObject.transform.position;
+        ClearPanel = GameObject.Find("Canvas").transform.GetChild(0).gameObject;
+       
+
+
         //Debug.Log( DataController.instance.dataSave.nowCharacter_name);
-     
+
         for (int i = 0; i < character.Count; i++)
         {
 
@@ -215,7 +222,8 @@ public class PlayerControl : MonoBehaviour
         if (collision.gameObject.tag == "Next")
         {
             collision.enabled = false; // 중복방지
-            GameManage.NextStage();
+            ClearPanel.SetActive(true);
+            //GameManage.NextStage();
         }
         //코인이 collision일 경우 가끔 코인에 부딪쳐서 trigger로 변경
         // 코인과 부딪히면 Coin 점수 상승
@@ -235,7 +243,22 @@ public class PlayerControl : MonoBehaviour
     {
         if (collision.gameObject)
         {
-            ground = true;
+            if (ground == false)
+            {
+                if (DataController.instance.dataSave.soundOn == true)
+                {
+                    if (!audioSource.isPlaying)
+                    {
+                        audioSource.Play();
+
+                    }
+                }
+                   
+              
+                ground = true;
+            }
+           
+           
         }
 
        
