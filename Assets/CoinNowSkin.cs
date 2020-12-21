@@ -9,6 +9,7 @@ public class CoinNowSkin : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+     
         SpriteRenderer[] coins = gameObject.GetComponentsInChildren<SpriteRenderer>();
         for (int i = 0; i < coin.Count; i++)
         {

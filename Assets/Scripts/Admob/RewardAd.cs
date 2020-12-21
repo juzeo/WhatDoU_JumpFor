@@ -15,7 +15,15 @@ public class RewardAd : MonoBehaviour
 
     public void Awake()
     {
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         rewardAd = new RewardedAd(realAd);
         Handle(rewardAd);
         Load();

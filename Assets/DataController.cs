@@ -54,7 +54,8 @@ public class DataController : MonoBehaviour
             dataSave = new DataSave();
             dataSave.nowCharacter_name="Ch1";
             dataSave.nowCoin_name = "코인";
-            dataSave.nowStage = 0;
+            dataSave.nowStage = 1;
+            
             dataSave.soundOn = true;
             Debug.Log(dataSave.nowCharacter_name);
         }

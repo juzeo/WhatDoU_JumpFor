@@ -6,14 +6,26 @@ using UnityEngine.UI;
 public class Coinbar : MonoBehaviour
 {
     public static Coinbar instance;
-    Text CoinbarText;
+    public Text CoinbarText;
     void Start()
     {
-        instance = this;
-        CoinbarText = gameObject.GetComponent<Text>();
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
        
-        
+        CoinbarText = gameObject.GetComponent<Text>();
+
+        CoinbarText.text=DataController.instance.dataSave.Coin.ToString();
+   
     }
+
+
+
     public void UpdateText()
     {
         CoinbarText.text = CoinManager.instance.getCoin().ToString();

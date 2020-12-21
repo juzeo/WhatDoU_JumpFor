@@ -7,13 +7,21 @@ public class FullAds : MonoBehaviour
 {
     public static FullAds instance;
    
-    private string realAd = "ca-app-pub-3940256099942544/86916914335";
-    private string testAd = "ca-app-pub-3940256099942544/8691691433";
+    private string realAd = "ca-app-pub-3940256099942544/1033173712";
+    private string testAd = "ca-app-pub-3940256099942544/1033173712";
     public InterstitialAd screenAd;
     // Start is called before the first frame update
     void Awake()
     {
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+       
         MobileAds.Initialize(
 
              (initStatus) => InitAd()
@@ -32,7 +40,8 @@ public class FullAds : MonoBehaviour
     }
     public void show()
     {
-        
+        Debug.Log("실행");
+        InitAd();
         StartCoroutine("ShowScreenAd");
         InitAd();
     }
@@ -40,10 +49,10 @@ public class FullAds : MonoBehaviour
     {
         while (!screenAd.IsLoaded())
         {
-           
+            Debug.Log("로딩");
             yield return null;
         }
-
+        Debug.Log("완료");
         screenAd.Show();
     }
 }

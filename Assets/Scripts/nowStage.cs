@@ -7,7 +7,7 @@ public class nowStage : MonoBehaviour
     public static nowStage instance;
     int stage;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (instance != null)
         {

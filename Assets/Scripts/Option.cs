@@ -23,4 +23,12 @@ public class Option : MonoBehaviour
             OptionBar.SetActive(false);
         }
     }
+    public void Achievement()
+    {
+        GPGSBoard.instance.AchievementsUI();
+    }
+    public void leaderBoard()
+    {
+        GPGSBoard.instance.LeaderBoard();
+    }
 }

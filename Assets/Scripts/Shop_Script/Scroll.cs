@@ -6,7 +6,7 @@ public class Scroll : MonoBehaviour
 {
     public Vector2 touchPoint;
     public List<Transform> ScrollItem;
-   
+    public string type;
     public int nowItemIndex = 0;//현재 아이템 위치
     Transform nowItem;
     public Vector2 FirstPos;
@@ -21,6 +21,28 @@ public class Scroll : MonoBehaviour
 
     private void Start()
     {
+        if (type == "Coin")
+        {
+            for (int i = 0; i < ScrollItem.Count; i++)
+            {
+                if(ScrollItem[i].GetComponent<SpriteRenderer>().sprite.name== DataController.instance.dataSave.nowCoin_name)
+                {
+                    nowItemIndex = i;
+                }
+            }
+
+        }
+        else
+        {
+            for (int i = 0; i < ScrollItem.Count; i++)
+            {
+                if (ScrollItem[i].GetComponent<SpriteRenderer>().sprite.name == DataController.instance.dataSave.nowCharacter_name)
+                {
+                    nowItemIndex = i;
+                }
+            }
+        }
+       
         FirstPos = gameObject.transform.position;
         FirstPos -= new Vector2(0, 1);
         SetMainItem();

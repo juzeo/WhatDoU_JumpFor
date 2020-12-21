@@ -9,8 +9,20 @@ EditorBuildSettings:
     path: Assets/Scenes/main.unity
     guid: 3864da07e737ee346ba5f74e87b7a1c6
   - enabled: 1
-    path: Assets/Scenes/drawing lots.unity
-    guid: 9431a6a892d6af648b4bd72c0d42d28a
+    path: Assets/Scenes/Stages/Stage1.unity
+    guid: 224f85f2c5b7850418492a1fc21d4515
+  - enabled: 1
+    path: Assets/Scenes/Stages/Stage3.unity
+    guid: 819bdea4a20ffee42ab64fd8d38c261e
+  - enabled: 1
+    path: Assets/Scenes/Stages/Stage5.unity
+    guid: e2ca07a69b081f942b0ea5764f215b2b
+  - enabled: 1
+    path: Assets/Scenes/Stages/Stage7.unity
+    guid: 9ac007c211d184849b1542888ac1d7b4
+  - enabled: 1
+    path: Assets/Scenes/Stages/Stage9.unity
+    guid: c364602e914004945a4be43719ee25b3
   - enabled: 1
     path: Assets/Scenes/Shop.unity
     guid: be4a834cb22dc0c44a4756cd3d2fd946
@@ -18,18 +30,21 @@ EditorBuildSettings:
     path: Assets/Scenes/CoinShop.unity
     guid: 0e5d3efc2da5a8c4eb05880ee33ba92a
   - enabled: 1
-    path: Assets/Scenes/Stage01.unity
-    guid: 224f85f2c5b7850418492a1fc21d4515
+    path: Assets/Scenes/drawing lots.unity
+    guid: 9431a6a892d6af648b4bd72c0d42d28a
   - enabled: 1
-    path: Assets/Scenes/Stage02.unity
-    guid: 819bdea4a20ffee42ab64fd8d38c261e
+    path: Assets/Scenes/Stages/Stage2.unity
+    guid: 01ceaffb314a0894a97cd425845d1636
   - enabled: 1
-    path: Assets/Scenes/Stage03.unity
-    guid: e2ca07a69b081f942b0ea5764f215b2b
+    path: Assets/Scenes/Stages/Stage4.unity
+    guid: df19b53d92285724f99f6803501b8b03
   - enabled: 1
-    path: Assets/Scenes/Stage04.unity
-    guid: 9ac007c211d184849b1542888ac1d7b4
+    path: Assets/Scenes/Stages/Stage6.unity
+    guid: 02854601aa2369245b1c646bbde005d1
   - enabled: 1
-    path: Assets/Scenes/Stage05.unity
-    guid: c364602e914004945a4be43719ee25b3
+    path: Assets/Scenes/Stages/Stage8.unity
+    guid: 5c54a32907542e947806e99546bd9282
+  - enabled: 1
+    path: Assets/Scenes/Stages/Stage10.unity
+    guid: 838497d2333522e4f95c6b08eeca3716
   m_configObjects: {}

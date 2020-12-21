@@ -8,8 +8,9 @@ public class GameManage : MonoBehaviour
     public static GameManage instance;
     // Start is called before the first frame update
     public int ClickCount;
+    
 
-    static int stageLevel = 0; // 씬 시작 인덱스 번호 수정 필요
+     static int stageLevel; // 씬 시작 인덱스 번호 수정 필요
 
 
     public GameObject Player;
@@ -29,7 +30,7 @@ public class GameManage : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
           
         }
-
+        stageLevel = DataController.instance.dataSave.nowStage;
 
         /*
         Screen.SetResolution(1440, 2960, true);
@@ -68,11 +69,22 @@ public class GameManage : MonoBehaviour
     {
         NextStage();
     }
+    public static void NowStage()
+    {
+        SceneManager.LoadScene("Scenes/Stages/Stage" + DataController.instance.dataSave.nowStage);
+    }
     // 스테이지 이동
     public static void NextStage() {
 
         stageLevel++;
+        nowStage.instance.Upstage();
+        DataController.instance.dataSave.nowStage = stageLevel;
+        SceneManager.LoadScene("Scenes/Stages/Stage" + stageLevel);
+        GPGSBoard.instance.topLeaderboard(DataController.instance.dataSave.nowStage);
 
+
+
+        /*
         if (stageLevel == 8) // 마지막 스테이지면 종료
         {
             // 추가 필요
@@ -82,7 +94,7 @@ public class GameManage : MonoBehaviour
             SceneManager.LoadScene(stageLevel, LoadSceneMode.Single);
 
         }
-    
+    */
     }
 
     void StartGame()

@@ -14,7 +14,7 @@ public class ShopBtn : MonoBehaviour
     public List<Transform> ItemList;
     public Character_Selecter CoinSelecter;
     public Character_Selecter CharacterSelecter;
-
+    public GameObject Panel;
 
     public void Start()
     {
@@ -57,7 +57,7 @@ public class ShopBtn : MonoBehaviour
     {
         SaveItemList();
         GameObject Coin = GameObject.FindGameObjectWithTag("Coin");
-        Debug.LogError(Coin.transform.parent.parent.name);
+
         if (Coin.transform.parent.parent.name == "CoinScroll")
         {
             for (int i = 0; i < DataController.instance.dataSave.UnlockList_name.Count; i++)
@@ -91,13 +91,18 @@ public class ShopBtn : MonoBehaviour
         }
         
         if (Play.text.Equals("X")){
-
+           
         }
         else
         {
             SceneManager.LoadScene("main");
         }
     }
+    public void Okay_btn()
+    {
+        Panel.SetActive(false);
+    }
+
     public void MoveDarwing_Lot()
     {
         
@@ -123,7 +128,14 @@ public class ShopBtn : MonoBehaviour
             Drawing_lot_Able_Character.instance.Able_Img_List = new List<Sprite>();
             Drawing_lot_Able_Character.instance.Able_Img_List = Coins_Sprite;
             if (Drawing_lot_Able_Character.instance.Able_Img_List.Count!=0&& CoinManager.instance.OutCoin(100))
+        {
             SceneManager.LoadScene("drawing lots");
+        }
+        else
+        {
+            Panel.SetActive(true);
+        }
+            
         
         
         

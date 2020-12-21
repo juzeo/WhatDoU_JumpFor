@@ -30,6 +30,7 @@ public class BannerAds : MonoBehaviour
             
 
             );
+        bannerview.Show();
     }
     public void InitAd()
     {

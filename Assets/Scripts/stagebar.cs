@@ -8,7 +8,8 @@ public class stagebar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //gameObject.transform.GetComponent<Text>().text = nowStage.instance.getStage().ToString();
+
+        gameObject.transform.GetComponent<Text>().text = DataController.instance.dataSave.nowStage+"F";
     }
 
    

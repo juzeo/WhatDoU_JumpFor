@@ -13,7 +13,7 @@ public class CoinManager : MonoBehaviour
    
     void Start()
     {
-
+        
 
         if (instance != null)
         {
@@ -28,13 +28,6 @@ public class CoinManager : MonoBehaviour
 
         }
      
-    }
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            InCoin(100);
-        }
     }
 
     public void InCoin(int num)

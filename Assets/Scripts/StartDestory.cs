@@ -13,7 +13,7 @@ public class StartDestory : MonoBehaviour
 
 
     }
-
+ 
     public void Show()
     {
         Object.SetActive(true);

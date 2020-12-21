@@ -8,14 +8,28 @@ using UnityEngine.UI;
 
 public class GPGSBoard : MonoBehaviour
 {
-    /*
+    public static GPGSBoard instance;
+
     public void Awake()
     {
- 
+
+        if (instance == null)
+        {
+            instance = this;
+
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         PlayGamesPlatform.InitializeInstance(new PlayGamesClientConfiguration.Builder().Build());
         PlayGamesPlatform.DebugLogEnabled = true;
         PlayGamesPlatform.Activate();
+       
+        
         Social.localUser.Authenticate((bool Success) => { });
+
     }
     public void LeaderBoard()
     {
@@ -23,8 +37,11 @@ public class GPGSBoard : MonoBehaviour
         {
             Awake();
         }
+   
+            Social.Active.ShowLeaderboardUI();
+      
         Debug.Log("LeaderBoard");
-        Social.Active.ShowLeaderboardUI();
+    
     }
     public void AchievementsUI()
     {
@@ -32,30 +49,33 @@ public class GPGSBoard : MonoBehaviour
         {
             Awake();
         }
+       
+        Social.Active.ShowAchievementsUI();
+      
         Debug.Log("achievement");
-        Social.ShowAchievementsUI();
+       
     }
    
-    public void testLeaderboard(int score)
+    public void topLeaderboard(int score)
     {
         if (Social.localUser.authenticated == true)
         {
-            Social.ReportScore(score, "CgkIkquU2r8GEAIQAw", (bool success) =>
+            Social.ReportScore(score, "CgkIkquU2r8GEAIQBA", (bool success) =>
             {
 
             });
         }
     }
-    public void achievement()
+    public void Dieachievement()
     {
         if (Social.localUser.authenticated == true)
         {
             PlayGamesPlatform.Instance.IncrementAchievement(
-      "CgkIkquU2r8GEAIQAg", 100, (bool success) =>
+      "CgkIkquU2r8GEAIQBQ", 100, (bool success) =>
       {
           // handle success or failure
       });
         }
-    }*/
+    }
 
 }
