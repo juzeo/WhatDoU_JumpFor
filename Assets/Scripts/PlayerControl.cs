@@ -84,7 +84,59 @@ public class PlayerControl : MonoBehaviour
                 
 
                 Touch touch = Input.GetTouch(0);
-           
+                /*
+                switch (touch.phase)
+                {
+                    case TouchPhase.Began:
+                        touchPoint = touch.position;
+                        gauage.SetActive(true);
+                        if (touchPoint.x > Screen.width / 2)//화면 가운데 기준 좌우 구분
+                        {
+                            Render.flipX = true;//캐릭터 바라보는 방향 변경
+
+                        }
+                        else
+                        {
+                            Render.flipX = false;//캐릭터 바라보는 방향 변경
+
+                        }
+                        break;
+                    case TouchPhase.Moved:
+                    case TouchPhase.Stationary:
+
+                        //true==상승 false==하락
+                        if (TimeDir == true)
+                        {
+                            touchTime += Time.deltaTime;
+                        }
+                        else
+                        {
+                            touchTime -= Time.deltaTime;
+                        }
+                        if (touchTime > 1 || touchTime < 0) //터치가 1을 넘거나 0 이하면 시간 TimeDir(시간 이동방향)를 바꿈
+                        {
+                            TimeDir = !TimeDir;
+                        }
+                        gauageBar.fillAmount = touchTime;
+                        break;
+                    case TouchPhase.Ended:
+
+                        if (touchTime <= 0.1f)
+                        {
+                            touchTime = 0.1f;
+                        }
+
+                        Jump(touchPoint, touchTime);
+                        gauage.SetActive(false);
+
+
+                        touchTime = 0;
+                        break;
+
+
+                }
+                */
+                
                 if (touch.phase == TouchPhase.Began)
                 {
                     
@@ -134,6 +186,7 @@ public class PlayerControl : MonoBehaviour
                     touchTime = 0;
                     
                 }
+                
             }
             /*
             //pc대응
@@ -238,7 +291,7 @@ public class PlayerControl : MonoBehaviour
         Debug.Log(dieCount);
         if (dieCount % 4 == 0)
         {
-            Debug.Log("ads");
+
             FullAds.instance.show();
         }
         if (dieCount == 10)
@@ -260,7 +313,7 @@ public class PlayerControl : MonoBehaviour
         // 코인과 부딪히면 Coin 점수 상승
         if (collision.gameObject.tag == "Coin")
         {
-            Debug.Log("aa");
+
             Destroy(collision.gameObject);
             CoinManager.instance.InCoin(10);
             CoinManager.instance.thisGameCoin++;

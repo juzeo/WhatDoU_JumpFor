@@ -70,7 +70,7 @@ public class GPGSBoard : MonoBehaviour
     {
         if (Social.localUser.authenticated == true)
         {
-            PlayGamesPlatform.Instance.IncrementAchievement(
+            Social.ReportProgress(
       "CgkIkquU2r8GEAIQBQ", 100, (bool success) =>
       {
           // handle success or failure
